@@ -16,7 +16,7 @@ public class Bean implements IBeanRemote{
         double diff = max - min;
         Random r = new Random();
         int hitted = 0;
-        int itterations = (int) Math.pow(10, (int)( (1/Math.sqrt(n))+1));
+        int itterations = (int) Math.pow(10, (int)( (1/Math.sqrt(n))+2));
         for (int i = 0; i < itterations; i++)
         {
             double rvalX = r.nextDouble();
