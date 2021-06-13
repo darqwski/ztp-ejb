@@ -12,9 +12,15 @@ public class HelloServlet extends HttpServlet {
     IBeanRemote beanRemote;
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-
+        HttpSession requestSession = request.getSession();
+        Integer counter = (Integer)requestSession.getAttribute("counter");
+        if(counter == null){
+            counter = 0;
+        }
+        counter++;
+        requestSession.setAttribute("counter", counter);
         // Hello
         PrintWriter out = response.getWriter();
-        out.println(beanRemote.solve(3));
+        out.println("Counter: "+counter);
     }
 }
